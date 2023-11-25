@@ -8,6 +8,10 @@
   display: none;
 }
 
+.inter {
+  font-family: "Inter", sans-serif;
+}
+
 /* Navigation Bar */
 nav {
   display: flex;
@@ -77,6 +81,44 @@ nav {
   justify-content: center;
   align-items: center;
   border-radius: 0.5rem;
+}
+
+#dropdownMenu1 {
+  display: none;
+  width: 80%;
+  height: 10rem;
+  gap: .5rem;
+  flex-direction: column;
+  margin-top: 1rem;
+  padding: 1rem;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #fff;
+  border-radius: 0.875rem;
+  border: 1px solid #dbdbdb;
+  box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.05);
+}
+
+div #alert-top {
+  display: flex;
+  justify-content: space-between;
+}
+
+div #alert-top h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #303030;
+}
+
+div #alert-bottom{
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  height: 100%;
+  text-align: center;
+  color: #303030;
+  background-color: #F1F1F1;
 }
 
 #popup .davii {
@@ -178,6 +220,13 @@ nav {
     font-size: 0.8rem;
     border-radius: 0.5rem;
   }
+
+  #dropdownMenu1{
+    width: 35%;
+    left: auto;
+    right: 3rem;
+    transform: translateX(0);
+  }  
 
   /* Main section */
   #mainParent {
