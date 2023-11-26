@@ -233,7 +233,7 @@ div #alert-bottom {
 /* Stores Button */
 #dropdownMenu2 .stores {
   display: flex;
-  width: 95%;
+  width: 100%;
   margin: 0.5rem 0;
   align-items: center;
   gap: 0.5rem;
@@ -275,7 +275,7 @@ div #alert-bottom {
 
 #dropdownMenu2 .drop2buttons {
   display: flex;
-  width: 95%;
+  width: 100%;
   align-items: center;
   justify-content: flex-start;
   padding: 0.5rem 1rem;
@@ -319,6 +319,10 @@ div #alert-bottom {
   font-family: "Inter", sans-serif;
   font-weight: 500;
   color: #e3e3e3;
+}
+
+#blackSection a {
+  text-decoration: none;
 }
 
 #blackSection #plan {
@@ -434,23 +438,39 @@ main {
   flex-direction: column;
 }
 
-.custom-checkbox {
+input[type="checkbox"] {
   position: relative;
+  appearance: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 2px dashed #8a8a8a;
+  background-color: #fff;
+  border-radius: 1rem;
+  display: inline-block;
   cursor: pointer;
 }
 
-.custom-checkbox::before {
-  content: ""; /* Empty content, but required for ::before to work */
-  width: 40px; /* Width of the SVG */
-  height: 40px; /* Height of the SVG */
-  background-size: cover;
-  background-position: center;
-  display: inline-block;
-  position: relative;
+input[type="checkbox"]:hover {
+  border-style: solid;
 }
 
-.custom-checkbox input:checked + span::before {
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="12" stroke="%23fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4 6" /></svg>');
+input[type="checkbox"]:checked {
+  background-color: #1c181d;
+  border-style: solid;
+  content: url(https://crushingit.tech/hackathon-assets/icon-checkmark-circle.svg);
+}
+
+input[type="checkbox"]::before {
+  position: absolute;
+  font-size: 50px;
+  line-height: 15px;
+  color: #fff;
+  transform: scale(0);
+  transition: 0.3s all ease-in-out;
+}
+
+input[type="checkbox"]:checked::before {
+  transform: scale(1);
 }
 
 /* Media queries */
@@ -507,6 +527,11 @@ main {
   #dropdownMenu2 .profile,
   #dropdownMenu2 .davii {
     font-size: 1rem;
+  }
+
+  #dropdownMenu2 a  {
+    width: 95%;
+    text-decoration: none;
   }
 
   #dropdownMenu2 .drop2buttons.david #email {
