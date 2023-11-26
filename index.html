@@ -36,8 +36,8 @@
       </div>
 
       <!-- Search Bar -->
-      <form action="#" id="searchBar">
-        <button id="searchIcon">
+      <button id="searchBar">
+        <span id="searchIcon">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="15"
@@ -52,9 +52,9 @@
               fill="#B5B5B5"
             />
           </svg>
-        </button>
+        </span>
         <input type="text" placeholder="Search" />
-      </form>
+      </button>
 
       <!-- Popup Activators -->
       <div id="popup">
@@ -77,7 +77,7 @@
         </button>
 
         <!-- Davii Collections -->
-        <button>
+        <button id="dav_coll">
           <span class="desktop davii">Davii Collections</span>
           <div class="DC">DC</div>
         </button>
@@ -228,6 +228,92 @@
           </svg>
         </button>
       </div>
+
+      <!-- Main main section -->
+      <main>
+        <!-- Top Section -->
+        <div id="mainStart">
+          <!-- Left -->
+          <div id="mainLeft">
+            <!-- Top -->
+            <div id="mainTop">
+              <div id="mainTitle" class="inter">
+                <h3>Setup guide</h3>
+                <p>
+                  Use this personalized guide to get your store up and running.
+                </p>
+              </div>
+              <!-- Open/Close Icon -->
+              <button id="OC_icon" onclick="toggleMain()">
+                <svg
+                  width="41"
+                  height="40"
+                  viewBox="0 0 21 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M15.0303 12.2803C14.7374 12.5732 14.2626 12.5732 13.9697 12.2803L10.5 8.81066L7.03033 12.2803C6.73744 12.5732 6.26256 12.5732 5.96967 12.2803C5.67678 11.9874 5.67678 11.5126 5.96967 11.2197L9.96967 7.21967C10.2626 6.92678 10.7374 6.92678 11.0303 7.21967L15.0303 11.2197C15.3232 11.5126 15.3232 11.9874 15.0303 12.2803Z"
+                    fill="#4A4A4A"
+                  />
+                </svg>
+              </button>
+            </div>
+            <!-- Progress Bar Section -->
+            <div id="progress-container">
+              <div class="inter">
+                <span id="progress-text">0/5</span> completed
+              </div>
+              <progress id="progress" max="5" value="0"></progress>
+            </div>
+          </div>
+        </div>
+
+        <form id="checkbox-form">
+          <label class="custom-checkbox"
+            ><input
+              type="checkbox"
+              class="checkbox"
+              onclick="updateProgress()"
+            />
+            Customize your online store</label
+          >
+          <label class="custom-checkbox"
+            ><input
+              type="checkbox"
+              class="checkbox"
+              onclick="updateProgress()"
+            />
+            Add your first product</label
+          >
+          <label class="custom-checkbox"
+            ><input
+              type="checkbox"
+              class="checkbox"
+              onclick="updateProgress()"
+            />
+            Add a custom domain</label
+          >
+          <label class="custom-checkbox"
+            ><input
+              type="checkbox"
+              class="checkbox"
+              onclick="updateProgress()"
+            />
+            Name your store</label
+          >
+          <label class="custom-checkbox"
+            ><input
+              type="checkbox"
+              class="checkbox"
+              onclick="updateProgress()"
+            />
+            Set up a payment provider</label
+          >
+        </form>
+      </main>
     </div>
 
     <!-- Javascript -->
