@@ -3,7 +3,8 @@ let blackSection = document.getElementById("blackSection");
 
 // Close Button for black section
 const closeBlackSection = () => {
-  blackSection.style.display = "none";
+  // blackSection.style.display = "none";
+  blackSection.style.visibility = "hidden";
 };
 
 // Popup buttons
