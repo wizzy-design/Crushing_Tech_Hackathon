@@ -77,7 +77,12 @@
         </button>
 
         <!-- Davii Collections -->
-        <button id="dav_coll" aria-haspopup="true" aria-expanded="false">
+        <button
+          id="dav_coll"
+          aria-haspopup="true"
+          aria-expanded="false"
+          aria-controls="dropdownMenu2"
+        >
           <span class="desktop davii">Davii Collections</span>
           <div class="DC">DC</div>
         </button>
@@ -140,9 +145,9 @@
         </div>
       </div>
       <!-- DropDown for DC -->
-      <div id="dropdownMenu2">
+      <div id="dropdownMenu2" aria-labelledby="dav_coll" role="menu">
         <!-- Profile Button -->
-        <button class="profile">
+        <button class="profile" role="menuitem">
           <div>
             <div class="DC">DC</div>
             <span class="davii">Davii Collections</span>
@@ -166,10 +171,14 @@
           </div>
         </button>
         <!-- Menu Options -->
-        <ul>
+        <ul id="profile-menu-content">
           <!-- Stores Button -->
           <li>
-            <a href="https://shopify.com/pricing" class="stores">
+            <a
+              href="https://shopify.com/pricing"
+              class="stores"
+              role="menuitem"
+            >
               <svg
                 width="31"
                 height="30"
@@ -195,6 +204,7 @@
               href="https://admin.shopify.com"
               class="drop2buttons inter"
               target="_blank"
+              role="menuitem"
             >
               Help Center
             </a>
@@ -204,6 +214,7 @@
               href="https://admin.shopify.com"
               class="drop2buttons inter"
               target="_blank"
+              role="menuitem"
             >
               Changelog
             </a>
@@ -213,6 +224,7 @@
               href="https://admin.shopify.com"
               class="drop2buttons inter"
               target="_blank"
+              role="menuitem"
             >
               Community forums
             </a>
@@ -222,6 +234,7 @@
               href="https://admin.shopify.com"
               class="drop2buttons inter"
               target="_blank"
+              role="menuitem"
             >
               Hire a Shopify Partner
             </a>
@@ -231,6 +244,7 @@
               href="https://admin.shopify.com"
               class="drop2buttons inter"
               target="_blank"
+              role="menuitem"
             >
               Keyboard shortcuts
             </a>
@@ -245,6 +259,7 @@
               href="https://admin.shopify.com"
               class="drop2buttons inter david"
               target="_blank"
+              role="menuitem"
             >
               <span>David Micheal</span
               ><span id="email">davidmicheal@gmail.com</span>
@@ -255,6 +270,7 @@
               href="https://admin.shopify.com"
               class="drop2buttons inter"
               target="_blank"
+              role="menuitem"
             >
               Manage account
             </a>
@@ -264,6 +280,7 @@
               href="https://admin.shopify.com"
               class="drop2buttons inter"
               target="_blank"
+              role="menuitem"
             >
               Log out
             </a>
@@ -331,26 +348,88 @@
               </button>
             </div>
             <!-- Progress Bar Section -->
-            <div id="progress-container">
-              <div class="inter">
-                <span id="progress-text">0/5</span> completed
+            <div class="progress-area inter">
+              <span class="mainSpan"
+                ><span id="task-count">0</span> / 5 completed</span
+              >
+              <div
+                class="progress-bar"
+                role="progressbar"
+                aria-label="0% completed"
+              >
+                <div class="progress-bar-fill"></div>
               </div>
-              <progress id="progress" max="5" value="0"></progress>
             </div>
           </div>
         </div>
 
-        <!-- Checkbox form -->
+        <!-- CheckBox -->
         <ul id="checkbox-form">
           <!-- First Check -->
           <li>
-            <div class="shown">
-              <input
-                type="checkbox"
-                class="checkbox"
-                onclick="updateProgress()"
-              />
-              <label>Customize your online store</label>
+            <div class="shopping-item">
+              <button
+                class="shopping-item-checkbox"
+                id="shopping-item-checkbox"
+              >
+                <svg
+                  class="not-completed-icon"
+                  id="not-completed-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                >
+                  <circle
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    stroke="#8A8A8A"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-dasharray="5 5"
+                  />
+                </svg>
+                <svg
+                  class="loading-spinner-icon hidden"
+                  id="loading-spinner-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 28 28"
+                  fill="none"
+                >
+                  <path
+                    d="M26 14C26 16.3734 25.2962 18.6935 23.9776 20.6668C22.6591 22.6402 20.7849 24.1783 18.5922 25.0866C16.3995 25.9948 13.9867 26.2324 11.6589 25.7694C9.33114 25.3064 7.19295 24.1635 5.51472 22.4853C3.83649 20.8071 2.6936 18.6689 2.23058 16.3411C1.76755 14.0133 2.00519 11.6005 2.91345 9.4078C3.8217 7.21509 5.35977 5.34094 7.33316 4.02236C9.30655 2.70379 11.6266 2 14 2"
+                    stroke="#8A8A8A"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+
+                <svg
+                  class="completed-icon hidden"
+                  id="completed-icon"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle cx="12" cy="12" r="10" fill="#303030"></circle>
+                  <path
+                    d="M17.2738 8.52629C17.6643 8.91682 17.6643 9.54998 17.2738 9.94051L11.4405 15.7738C11.05 16.1644 10.4168 16.1644 10.0263 15.7738L7.3596 13.1072C6.96908 12.7166 6.96908 12.0835 7.3596 11.693C7.75013 11.3024 8.38329 11.3024 8.77382 11.693L10.7334 13.6525L15.8596 8.52629C16.2501 8.13577 16.8833 8.13577 17.2738 8.52629Z"
+                    fill="#fff"
+                  ></path>
+                </svg>
+              </button>
+
+              <span class="shopping-item-label inter"
+                >Customize your online store</span
+              >
             </div>
             <div class="info inter">
               <!-- Words -->
@@ -377,13 +456,69 @@
           </li>
           <!-- Second Check -->
           <li>
-            <div class="shown">
-              <input
-                type="checkbox"
-                class="checkbox"
-                onclick="updateProgress()"
-              />
-              <label>Add your first product</label>
+            <div class="shopping-item">
+              <button
+                class="shopping-item-checkbox"
+                id="shopping-item-checkbox"
+              >
+                <svg
+                  class="not-completed-icon"
+                  id="not-completed-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                >
+                  <circle
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    stroke="#8A8A8A"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-dasharray="5 5"
+                  />
+                </svg>
+                <svg
+                  class="loading-spinner-icon hidden"
+                  id="loading-spinner-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 28 28"
+                  fill="none"
+                >
+                  <path
+                    d="M26 14C26 16.3734 25.2962 18.6935 23.9776 20.6668C22.6591 22.6402 20.7849 24.1783 18.5922 25.0866C16.3995 25.9948 13.9867 26.2324 11.6589 25.7694C9.33114 25.3064 7.19295 24.1635 5.51472 22.4853C3.83649 20.8071 2.6936 18.6689 2.23058 16.3411C1.76755 14.0133 2.00519 11.6005 2.91345 9.4078C3.8217 7.21509 5.35977 5.34094 7.33316 4.02236C9.30655 2.70379 11.6266 2 14 2"
+                    stroke="#8A8A8A"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+
+                <svg
+                  class="completed-icon hidden"
+                  id="completed-icon"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle cx="12" cy="12" r="10" fill="#303030"></circle>
+                  <path
+                    d="M17.2738 8.52629C17.6643 8.91682 17.6643 9.54998 17.2738 9.94051L11.4405 15.7738C11.05 16.1644 10.4168 16.1644 10.0263 15.7738L7.3596 13.1072C6.96908 12.7166 6.96908 12.0835 7.3596 11.693C7.75013 11.3024 8.38329 11.3024 8.77382 11.693L10.7334 13.6525L15.8596 8.52629C16.2501 8.13577 16.8833 8.13577 17.2738 8.52629Z"
+                    fill="#fff"
+                  ></path>
+                </svg>
+              </button>
+
+              <span class="shopping-item-label inter"
+                >Add your first product</span
+              >
             </div>
             <div class="info inter">
               <!-- Words -->
@@ -413,13 +548,67 @@
           </li>
           <!-- Third Check -->
           <li>
-            <div class="shown">
-              <input
-                type="checkbox"
-                class="checkbox"
-                onclick="updateProgress()"
-              />
-              <label>Add your custom domain</label>
+            <div class="shopping-item">
+              <button
+                class="shopping-item-checkbox"
+                id="shopping-item-checkbox"
+              >
+                <svg
+                  class="not-completed-icon"
+                  id="not-completed-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                >
+                  <circle
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    stroke="#8A8A8A"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-dasharray="5 5"
+                  />
+                </svg>
+                <svg
+                  class="loading-spinner-icon hidden"
+                  id="loading-spinner-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 28 28"
+                  fill="none"
+                >
+                  <path
+                    d="M26 14C26 16.3734 25.2962 18.6935 23.9776 20.6668C22.6591 22.6402 20.7849 24.1783 18.5922 25.0866C16.3995 25.9948 13.9867 26.2324 11.6589 25.7694C9.33114 25.3064 7.19295 24.1635 5.51472 22.4853C3.83649 20.8071 2.6936 18.6689 2.23058 16.3411C1.76755 14.0133 2.00519 11.6005 2.91345 9.4078C3.8217 7.21509 5.35977 5.34094 7.33316 4.02236C9.30655 2.70379 11.6266 2 14 2"
+                    stroke="#8A8A8A"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+
+                <svg
+                  class="completed-icon hidden"
+                  id="completed-icon"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle cx="12" cy="12" r="10" fill="#303030"></circle>
+                  <path
+                    d="M17.2738 8.52629C17.6643 8.91682 17.6643 9.54998 17.2738 9.94051L11.4405 15.7738C11.05 16.1644 10.4168 16.1644 10.0263 15.7738L7.3596 13.1072C6.96908 12.7166 6.96908 12.0835 7.3596 11.693C7.75013 11.3024 8.38329 11.3024 8.77382 11.693L10.7334 13.6525L15.8596 8.52629C16.2501 8.13577 16.8833 8.13577 17.2738 8.52629Z"
+                    fill="#fff"
+                  ></path>
+                </svg>
+              </button>
+
+              <span class="shopping-item-label inter">Add a custom domain</span>
             </div>
             <div class="info inter">
               <!-- Words -->
@@ -427,10 +616,13 @@
                 <p>
                   Your current domain is 222219.myshopify.com but you can add a
                   custom domain to help customers find your online store.
+                  <a
+                    href="https://help.shopify.com/en/manual/domains"
+                    class="inlineLearn"
+                    >Learn More</a
+                  >
                 </p>
-                <a href="https://help.shopify.com/en/manual/domains"
-                  >Learn More</a
-                >
+
                 <br />
                 <button class="inter">Add domain</button>
               </div>
@@ -445,13 +637,67 @@
           </li>
           <!-- Fourth Check -->
           <li>
-            <div class="shown">
-              <input
-                type="checkbox"
-                class="checkbox"
-                onclick="updateProgress()"
-              />
-              <label>Name your store</label>
+            <div class="shopping-item">
+              <button
+                class="shopping-item-checkbox"
+                id="shopping-item-checkbox"
+              >
+                <svg
+                  class="not-completed-icon"
+                  id="not-completed-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                >
+                  <circle
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    stroke="#8A8A8A"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-dasharray="5 5"
+                  />
+                </svg>
+                <svg
+                  class="loading-spinner-icon hidden"
+                  id="loading-spinner-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 28 28"
+                  fill="none"
+                >
+                  <path
+                    d="M26 14C26 16.3734 25.2962 18.6935 23.9776 20.6668C22.6591 22.6402 20.7849 24.1783 18.5922 25.0866C16.3995 25.9948 13.9867 26.2324 11.6589 25.7694C9.33114 25.3064 7.19295 24.1635 5.51472 22.4853C3.83649 20.8071 2.6936 18.6689 2.23058 16.3411C1.76755 14.0133 2.00519 11.6005 2.91345 9.4078C3.8217 7.21509 5.35977 5.34094 7.33316 4.02236C9.30655 2.70379 11.6266 2 14 2"
+                    stroke="#8A8A8A"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+
+                <svg
+                  class="completed-icon hidden"
+                  id="completed-icon"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle cx="12" cy="12" r="10" fill="#303030"></circle>
+                  <path
+                    d="M17.2738 8.52629C17.6643 8.91682 17.6643 9.54998 17.2738 9.94051L11.4405 15.7738C11.05 16.1644 10.4168 16.1644 10.0263 15.7738L7.3596 13.1072C6.96908 12.7166 6.96908 12.0835 7.3596 11.693C7.75013 11.3024 8.38329 11.3024 8.77382 11.693L10.7334 13.6525L15.8596 8.52629C16.2501 8.13577 16.8833 8.13577 17.2738 8.52629Z"
+                    fill="#fff"
+                  ></path>
+                </svg>
+              </button>
+
+              <span class="shopping-item-label inter">Name your store</span>
             </div>
             <div class="info inter">
               <!-- Words -->
@@ -459,11 +705,12 @@
                 <p>
                   Your temporary store name is currently Davii collections. The
                   store name appears in your admin and your online store.
+                  <a
+                    href="https://help.shopify.com/en/manual/intro-to-shopify/initial-setup/setup-business-settings#set-or-change-your-online-store-name-and-legal-business-name"
+                    class="inlineLearn"
+                    >Learn More</a
+                  >
                 </p>
-                <a
-                  href="https://help.shopify.com/en/manual/intro-to-shopify/initial-setup/setup-business-settings#set-or-change-your-online-store-name-and-legal-business-name"
-                  >Learn More</a
-                >
                 <br />
                 <button class="inter">Name store</button>
               </div>
@@ -478,13 +725,69 @@
           </li>
           <!-- Fifth Check -->
           <li>
-            <div class="shown">
-              <input
-                type="checkbox"
-                class="checkbox"
-                onclick="updateProgress()"
-              />
-              <label>Set up a payment provider</label>
+            <div class="shopping-item">
+              <button
+                class="shopping-item-checkbox"
+                id="shopping-item-checkbox"
+              >
+                <svg
+                  class="not-completed-icon"
+                  id="not-completed-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                >
+                  <circle
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    stroke="#8A8A8A"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-dasharray="5 5"
+                  />
+                </svg>
+                <svg
+                  class="loading-spinner-icon hidden"
+                  id="loading-spinner-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 28 28"
+                  fill="none"
+                >
+                  <path
+                    d="M26 14C26 16.3734 25.2962 18.6935 23.9776 20.6668C22.6591 22.6402 20.7849 24.1783 18.5922 25.0866C16.3995 25.9948 13.9867 26.2324 11.6589 25.7694C9.33114 25.3064 7.19295 24.1635 5.51472 22.4853C3.83649 20.8071 2.6936 18.6689 2.23058 16.3411C1.76755 14.0133 2.00519 11.6005 2.91345 9.4078C3.8217 7.21509 5.35977 5.34094 7.33316 4.02236C9.30655 2.70379 11.6266 2 14 2"
+                    stroke="#8A8A8A"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+
+                <svg
+                  class="completed-icon hidden"
+                  id="completed-icon"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle cx="12" cy="12" r="10" fill="#303030"></circle>
+                  <path
+                    d="M17.2738 8.52629C17.6643 8.91682 17.6643 9.54998 17.2738 9.94051L11.4405 15.7738C11.05 16.1644 10.4168 16.1644 10.0263 15.7738L7.3596 13.1072C6.96908 12.7166 6.96908 12.0835 7.3596 11.693C7.75013 11.3024 8.38329 11.3024 8.77382 11.693L10.7334 13.6525L15.8596 8.52629C16.2501 8.13577 16.8833 8.13577 17.2738 8.52629Z"
+                    fill="#fff"
+                  ></path>
+                </svg>
+              </button>
+
+              <span class="shopping-item-label inter"
+                >Set up a payment provider</span
+              >
             </div>
             <div class="info inter">
               <!-- Words -->
@@ -493,10 +796,13 @@
                   Choose a payment provider to start accepting payments.
                   You&apos;ll need to create an account with the payment
                   provider and set it up with your Shopify store.
+                  <a
+                    href="https://help.shopify.com/en/manual/payments"
+                    class="inlineLearn"
+                    >Learn More</a
+                  >
                 </p>
-                <a href="https://help.shopify.com/en/manual/payments"
-                  >Learn More</a
-                >
+
                 <br />
                 <button class="inter">Setup a payment</button>
               </div>

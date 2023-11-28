@@ -1,5 +1,86 @@
+function app() {
+  const HIDDENCLASS = "hidden";
+  const MARKASDONE = "checkbox-done";
+  const todoLists = document.querySelectorAll(".shopping-item");
+  const taskCountElement = document.getElementById("task-count");
+  taskCount = 5;
+  let completedTasks = 0;
+  const progressBar = document.querySelector(".progress-bar");
+  const progressBarFill = progressBar.querySelector(".progress-bar-fill");
+
+  function updateTaskCount() {
+    const percent = (completedTasks / taskCount) * 100;
+    progressBarFill.style.width = `${percent}%`;
+    progressBar.ariaLabel = `${percent}% completed`;
+
+    taskCountElement.textContent = `${completedTasks}`;
+  }
+  console.log(updateTaskCount, taskCountElement);
+
+  function handleMarkAsDone(button) {
+    const notCompletedIcon = button.querySelector(".not-completed-icon");
+    const completedIcon = button.querySelector(".completed-icon");
+    const loadingSpinnerIcon = button.querySelector(".loading-spinner-icon");
+
+    notCompletedIcon.classList.add(HIDDENCLASS);
+    loadingSpinnerIcon.classList.remove(HIDDENCLASS);
+
+    setTimeout(() => {
+      loadingSpinnerIcon.classList.add(HIDDENCLASS);
+      completedIcon.classList.remove(HIDDENCLASS);
+      button.classList.add(MARKASDONE);
+
+      // Increment the completed task count
+      completedTasks++;
+      updateTaskCount();
+    }, 700);
+  }
+
+  function handleMarkAsNotDone(button) {
+    const completedIcon = button.querySelector(".completed-icon");
+    const loadingSpinnerIcon = button.querySelector(".loading-spinner-icon");
+
+    completedIcon.classList.add(HIDDENCLASS);
+    loadingSpinnerIcon.classList.remove(HIDDENCLASS);
+
+    setTimeout(() => {
+      loadingSpinnerIcon.classList.add(HIDDENCLASS);
+      button.querySelector(".not-completed-icon").classList.remove(HIDDENCLASS);
+      button.classList.remove(MARKASDONE);
+
+      // Decrement the completed task count
+      completedTasks--;
+      updateTaskCount();
+    }, 700);
+  }
+
+  function handleToggle(button) {
+    const markedAsDone = button.classList.contains(MARKASDONE);
+
+    if (markedAsDone) {
+      handleMarkAsNotDone(button);
+    } else {
+      handleMarkAsDone(button);
+    }
+  }
+
+  function handleButtonClick(event) {
+    const button = event.target.closest(".shopping-item-checkbox");
+    if (button) {
+      handleToggle(button);
+    }
+  }
+
+  // Attach a single click event listener to a common parent element
+  todoLists.forEach((list) => {
+    list.addEventListener("click", handleButtonClick);
+  });
+}
+
+app();
+
+// BlackSection
 let blackSection = document.getElementById("blackSection");
-// let drop2buttons = document.getElementsByClassName(".drop2buttons");
 
 // Close Button for black section
 const closeBlackSection = () => {
@@ -49,39 +130,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
-
-// Dropdown2 Buttons
-// drop2buttons.addEventListener('click', function() {
-//   this.style.backgroundColor = '#F0F0F0';
-// });
-
-// function toggleButtonClick() {
-//   let drop2buttons = document.getElementsByClassName("drop2buttons");
-
-//   if (drop2buttons.style.backgroundColor === 'rgb(240, 240, 240)') {
-//     drop2buttons.style.backgroundColor = '#FFFFFF'; // Set initial background color
-//   } else {
-//     drop2buttons.style.backgroundColor = 'red'; // Set background color when clicked
-//   }
-// }
-
-// For main section progress bar
-function updateProgress() {
-  var checkboxes = document.querySelectorAll(".checkbox");
-  var checkedCount = 0;
-
-  checkboxes.forEach(function (checkbox) {
-    if (checkbox.checked) {
-      checkedCount++;
-    }
-  });
-
-  var progress = document.getElementById("progress");
-  var progressText = document.getElementById("progress-text");
-
-  progress.value = checkedCount;
-  progressText.textContent = checkedCount + "/" + checkboxes.length;
-}
 
 let toggleIcon = document.getElementById("OC_icon");
 let checkForm = document.getElementById("checkbox-form");
