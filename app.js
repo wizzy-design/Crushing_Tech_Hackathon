@@ -3,7 +3,6 @@ let blackSection = document.getElementById("blackSection");
 
 // Close Button for black section
 const closeBlackSection = () => {
-  // blackSection.style.display = "none";
   blackSection.style.visibility = "hidden";
 };
 
@@ -87,6 +86,7 @@ function updateProgress() {
 let toggleIcon = document.getElementById("OC_icon");
 let checkForm = document.getElementById("checkbox-form");
 
+// To toggle the dropdown main section
 const toggleMain = () => {
   var displayy = checkForm.style.display === "none" ? "flex" : "none";
   checkForm.style.display = displayy;
@@ -96,5 +96,10 @@ const toggleMain = () => {
       : "rotate(180deg)";
 };
 
-// const rotateArrow = () => {
-// }
+let listItem = document.querySelectorAll("li");
+
+listItem.forEach((li, index) => {
+  li[index].addEventListener("click", () => {
+    li.style.backgroundColor = "red";
+  });
+});
