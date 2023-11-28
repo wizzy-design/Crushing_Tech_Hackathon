@@ -339,6 +339,7 @@ div #alert-bottom {
 }
 
 #blackSection a {
+  width: 7rem;
   text-decoration: none;
 }
 
@@ -354,6 +355,7 @@ div #alert-bottom {
   border: 1px solid rgba(0, 0, 0, 0.1);
   background: #fff;
   padding: 0.8rem 0;
+  pointer-events: none;
   box-shadow: 0px -1px 0px 0px #b5b5b5 inset;
 }
 
@@ -742,7 +744,7 @@ main {
   }
 
   #blackSection #plan {
-    margin-right: 1rem;
+    margin-right: 5rem;
   }
 
   #blackSection #closeButton {
@@ -756,5 +758,12 @@ main {
 
   #checkbox-form li .info .second {
     display: block;
+  }
+}
+
+/* Smallest screen */
+@media screen and (max-width: 425px) {
+  #checkbox-form li .info .first #productButtons button {
+    width: 9rem;
   }
 }
