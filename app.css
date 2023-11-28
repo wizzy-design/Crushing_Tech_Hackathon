@@ -445,9 +445,9 @@ main {
 
 #checkbox-form li {
   border-radius: 0.625rem;
-  background: #f3f3f3;
   margin-bottom: 1rem;
   padding: 0.5rem;
+  transition: all 0.2s ease-in;
 }
 
 /* PROGRESS BAR */
@@ -530,10 +530,24 @@ main {
 }
 
 .shopping-item-label {
+  display: flex;
+  justify-content: flex-start;
+  width: 60%;
+  height: 100%;
   color: #303030;
   font-size: 1rem;
   font-style: normal;
   font-weight: 500;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.shopping-item-label:focus {
+  padding: .3rem;
+  outline: 2px solid #005bd3;
+  border-radius: 0.5rem;
+  border: none;
 }
 
 .shopping-item-checkbox:focus .not-completed-icon circle {
@@ -574,7 +588,7 @@ main {
 /* Details of the card */
 
 #checkbox-form li .info {
-  display: flex;
+  display: none;
   justify-content: space-between;
   align-items: center;
   padding: 0 2.2rem 0.5rem 3rem;
@@ -646,6 +660,10 @@ main {
   outline: none;
   box-shadow: none;
   margin-left: 0.5rem;
+}
+
+#checkbox-form li .info .first .importBtn:hover {
+  background-color: #fff;
 }
 
 #checkbox-form li .info .first .importBtn:focus {
@@ -740,7 +758,7 @@ main {
   }
 
   #blackSection p {
-    flex: 1;
+    flex: 10;
   }
 
   #blackSection #plan {
@@ -748,6 +766,7 @@ main {
   }
 
   #blackSection #closeButton {
+    flex: 1;
     cursor: pointer;
   }
 

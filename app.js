@@ -34,6 +34,84 @@ function app() {
       completedTasks++;
       updateTaskCount();
     }, 700);
+
+    // Handles Meu and Aria
+    const menuTrigger = document.querySelector("#dav_coll");
+    const menu = document.querySelector("#dropdownMenu2");
+
+    const allMenuItems = menu.querySelectorAll('[role="menuitem"]');
+
+    function closeMenu() {
+      menuTrigger.ariaExpanded = "false";
+      menuTrigger.focus();
+    }
+
+    function handleMenuEscapeKeypress(event) {
+      // if user pressed escape key
+      if (event.key === "Escape") {
+        toggleMenu();
+      }
+    }
+
+    function handleMenuItemArrowKeyPress(event, menuItemIndex) {
+      // create some helpful variables : isLastMenuItem, isFirstMenuItem
+      const isLastMenuItem = menuItemIndex === allMenuItems.length - 1;
+      const isFirstMenuItem = menuItemIndex === 0;
+
+      const nextMenuItem = allMenuItems.item(menuItemIndex + 1);
+      const previousMenuItem = allMenuItems.item(menuItemIndex - 1);
+
+      // if the user pressed arrow right or arrow down
+      if (event.key === "ArrowRight" || event.key === "ArrowDown") {
+        // if user is on last item, focus on first menuitem
+        if (isLastMenuItem) {
+          allMenuItems.item(0).focus();
+
+          return;
+        }
+        // then focus on next menu item
+        nextMenuItem.focus();
+      }
+
+      // if the user pressed arrow up or arrow left
+      if (event.key === "ArrowUp" || event.key === "ArrowLeft") {
+        if (isFirstMenuItem) {
+          allMenuItems.item(allMenuItems.length - 1).focus();
+          return;
+        }
+
+        previousMenuItem.focus();
+      }
+      // then focus on the previous menu item
+      // if the user is on first menu item, focus on last menuitem
+    }
+
+    function openMenu() {
+      menuTrigger.ariaExpanded = "true";
+      allMenuItems.item(0).focus();
+
+      menu.addEventListener("keyup", handleMenuEscapeKeypress);
+
+      // for each menu item, register an event listener for the keyup event
+      allMenuItems.forEach(function (menuItem, menuItemIndex) {
+        menuItem.addEventListener("keyup", function (event) {
+          handleMenuItemArrowKeyPress(event, menuItemIndex);
+        });
+      });
+    }
+    function toggleMenu() {
+      const isExpanded =
+        menuTrigger.attributes["aria-expanded"].value === "true";
+      menu.classList.toggle("menu-active");
+
+      if (isExpanded) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    }
+
+    menuTrigger.addEventListener("click", toggleMenu);
   }
 
   function handleMarkAsNotDone(button) {
@@ -144,10 +222,50 @@ const toggleMain = () => {
       : "rotate(180deg)";
 };
 
-let listItem = document.querySelectorAll("li");
+// Get all 'li' elements with the class "checklist"
+let listItems = document.querySelectorAll(".checklist");
+// Get all 'info' elements with the class "checklist"
+let infoItems = document.querySelectorAll(".info");
 
-listItem.forEach((li, index) => {
-  li[index].addEventListener("click", () => {
-    li.style.backgroundColor = "red";
+// Function to handle the click event
+function handleItemClick(event) {
+  // Reset background color for all 'li' elements
+  listItems.forEach((item) => {
+    item.style.backgroundColor = "";
   });
+
+  // Reset display of info sections
+  infoItems.forEach((info) => {
+    info.style.display = "none";
+  });
+
+  // Get the parent 'li' element of the clicked button or label
+  let listItem = event.target.closest(".checklist");
+
+  // Set the background color to red for the clicked 'li' element
+  if (listItem) {
+    listItem.style.backgroundColor = "#F3F3F3";
+
+    // Find the corresponding infoItem (adjust this based on your HTML structure)
+    let infoItem = listItem.querySelector(".info");
+
+    // Check if infoItem is found and set its display to flex
+    if (infoItem) {
+      infoItem.style.display = "flex";
+    }
+  }
+}
+
+// Add click event listener to each checkButton
+listItems.forEach((item) => {
+  let checkButton = item.querySelector(".shopping-item-checkbox");
+  if (checkButton) {
+    checkButton.addEventListener("click", handleItemClick);
+  }
+
+  // Add click event listener to each checkLabel
+  let checkLabel = item.querySelector(".shopping-item-label");
+  if (checkLabel) {
+    checkLabel.addEventListener("click", handleItemClick);
+  }
 });

@@ -329,13 +329,19 @@
             <!-- Top -->
             <div id="mainTop">
               <div id="mainTitle" class="inter">
-                <h3>Setup guide</h3>
+                <h3 id="setupGuide">Setup guide</h3>
                 <p>
                   Use this personalized guide to get your store up and running.
                 </p>
               </div>
               <!-- Open/Close Icon -->
-              <button id="OC_icon" onclick="toggleMain()">
+              <button
+                id="OC_icon"
+                aria-haspopup="true"
+                aria-expanded="true"
+                aria-controls="checkbox-form"
+                onclick="toggleMain()"
+              >
                 <svg
                   width="41"
                   height="40"
@@ -369,9 +375,9 @@
         </div>
 
         <!-- CheckBox -->
-        <ul id="checkbox-form">
+        <ul id="checkbox-form" role="menu" aria-labelledby="setupGuide">
           <!-- First Check -->
-          <li>
+          <li role="menuitem" class="checklist">
             <div class="shopping-item">
               <button
                 class="shopping-item-checkbox"
@@ -432,8 +438,8 @@
                 </svg>
               </button>
 
-              <span class="shopping-item-label inter"
-                >Customize your online store</span
+              <button class="shopping-item-label inter" 
+                >Customize your online store</button
               >
             </div>
             <div class="info inter">
@@ -460,7 +466,7 @@
             </div>
           </li>
           <!-- Second Check -->
-          <li>
+          <li role="menuitem" class="checklist">
             <div class="shopping-item">
               <button
                 class="shopping-item-checkbox"
@@ -521,8 +527,8 @@
                 </svg>
               </button>
 
-              <span class="shopping-item-label inter"
-                >Add your first product</span
+              <button class="shopping-item-label inter"
+                >Add your first product</button
               >
             </div>
             <div class="info inter">
@@ -552,7 +558,7 @@
             </div>
           </li>
           <!-- Third Check -->
-          <li>
+          <li role="menuitem" class="checklist">
             <div class="shopping-item">
               <button
                 class="shopping-item-checkbox"
@@ -613,7 +619,7 @@
                 </svg>
               </button>
 
-              <span class="shopping-item-label inter">Add a custom domain</span>
+              <button class="shopping-item-label inter">Add a custom domain</button>
             </div>
             <div class="info inter">
               <!-- Words -->
@@ -641,7 +647,7 @@
             </div>
           </li>
           <!-- Fourth Check -->
-          <li>
+          <li role="menuitem" class="checklist">
             <div class="shopping-item">
               <button
                 class="shopping-item-checkbox"
@@ -702,7 +708,7 @@
                 </svg>
               </button>
 
-              <span class="shopping-item-label inter">Name your store</span>
+              <button class="shopping-item-label inter">Name your store</button>
             </div>
             <div class="info inter">
               <!-- Words -->
@@ -729,7 +735,7 @@
             </div>
           </li>
           <!-- Fifth Check -->
-          <li>
+          <li role="menuitem" class="checklist">
             <div class="shopping-item">
               <button
                 class="shopping-item-checkbox"
@@ -790,8 +796,8 @@
                 </svg>
               </button>
 
-              <span class="shopping-item-label inter"
-                >Set up a payment provider</span
+              <button class="shopping-item-label inter"
+                >Set up a payment provider</button
               >
             </div>
             <div class="info inter">
