@@ -260,7 +260,6 @@ div #alert-bottom {
   border: none;
   border-radius: 0.5rem;
   outline: 2px solid #005bd3;
-  outline-offset: 4px;
 }
 
 #dropdownMenu2 a button {
@@ -424,7 +423,7 @@ main {
 
 #mainTop #OC_icon:focus {
   border-radius: 0.375rem;
-  border: 2px solid #005bd3;
+  outline: 2px solid #005bd3;
 }
 
 #mainTop #OC_icon:active {
@@ -532,7 +531,6 @@ main {
 .shopping-item-label {
   display: flex;
   justify-content: flex-start;
-  width: 60%;
   height: 100%;
   color: #303030;
   font-size: 1rem;
@@ -544,7 +542,7 @@ main {
 }
 
 .shopping-item-label:focus {
-  padding: .3rem;
+  padding: 0.3rem;
   outline: 2px solid #005bd3;
   border-radius: 0.5rem;
   border: none;
@@ -605,6 +603,10 @@ main {
   padding-top: 0.5rem;
   color: #005bd3;
   text-decoration: none;
+}
+
+#checkbox-form li .info .first a:focus {
+  outline: 2px solid #005bd3;
 }
 
 #checkbox-form li .info .first p .inlineLearn {
