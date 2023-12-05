@@ -1,32 +1,10 @@
-# This is gonna be a mobile-first built site
+# Crushing Tech Hackathon Reflection
 
-## Things to do
-- Add transition property to focused element but before the focus for e.g
-a{
-    transition: all 100ms ease-in
-}
+I participated in the Crushing Tech Hackathon, skillfully organized by Frantz Kati (@bahdcoder on Twitter). This enriching experience served as a profound challenge, leading me into the realm of web accessibility. Throughout this project, I acquired invaluable knowledge, including:
 
-Add this:
-{
-      outline-offset: 4px;
-}
+- Proficiency in utilizing Aria attributes
+- Understanding the functionality and significance of screen readers
+- Execution of screen reader tests for comprehensive accessibility evaluation
+- Mastery of keyboard accessibility testing techniques
 
- <!-- <a href="https://admin.shopify.com" target="_blank">
-          <button class="drop2buttons inter">Help Center</button>
-        </a>
-        <a href="https://admin.shopify.com" target="_blank">
-          <button class="drop2buttons inter">Changelog</button>
-        </a>
-        <a href="https://admin.shopify.com" target="_blank">
-          <button class="drop2buttons inter">Community forums</button>
-        </a>
-        <a href="https://admin.shopify.com" target="_blank">
-          <button class="drop2buttons inter">Hire a Shopify Partner</button>
-        </a>
-        <a href="https://admin.shopify.com" target="_blank">
-          <button class="drop2buttons inter">Keyboard shortcuts</button>
-        </a> -->
-
-
-
-
+These newfound skills not only broadened my technical expertise but also deepened my commitment to creating inclusive and user-friendly digital experiences. The Crushing Tech Hackathon proved to be an educational journey that significantly enhanced my understanding of web accessibility principles and practices.
